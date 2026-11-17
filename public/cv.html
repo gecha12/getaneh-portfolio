@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getaneh Dejenie (Melaku) — Professional CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1a12;
+      color: #1a2620;
+      padding: 2rem 1rem;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Print toolbar (hidden during print) */
+    .print-bar {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding: 0.8rem 1.4rem;
+      background: #152b1e;
+      border: 1px solid rgba(85, 214, 138, 0.25);
+      border-radius: 8px;
+      color: #F4F8F4;
+    }
+
+    .print-btn {
+      background: #A8FF3E;
+      color: #04140a;
+      border: none;
+      padding: 0.6rem 1.3rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #beff5a;
+      transform: translateY(-1px);
+    }
+
+    .back-link {
+      color: #55D68A;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* A4 Document Container */
+    .a4-document {
+      width: 100%;
+      max-width: 900px;
+      min-height: 1180px;
+      background: #ffffff;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+    }
+
+    /* Sidebar: Deep Emerald Forest */
+    aside {
+      background: linear-gradient(180deg, #102A1E 0%, #0B1C14 100%);
+      color: #E8F5EE;
+      padding: 2.5rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      border-right: 1px solid #1E4D37;
+    }
+
+    .avatar-wrapper {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      padding: 3px;
+      background: linear-gradient(135deg, #A8FF3E 0%, #55D68A 50%, #20503B 100%);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-tag {
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.74rem;
+      color: #A8FF3E;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    aside h4 {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #55D68A;
+      border-bottom: 1px solid rgba(85, 214, 138, 0.25);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .contact-item {
+      margin-bottom: 0.65rem;
+      font-size: 0.82rem;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.7rem;
+      color: #7AA88E;
+      text-transform: uppercase;
+      margin-bottom: 0.1rem;
+    }
+
+    .contact-val {
+      color: #ffffff;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-val a {
+      color: #A8FF3E;
+      text-decoration: none;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: #D4ECE0;
+    }
+
+    /* Main Area: Clean White Canvas */
+    main {
+      padding: 2.8rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      background: #ffffff;
+    }
+
+    .main-header {
+      border-bottom: 2px solid #20503B;
+      padding-bottom: 1.2rem;
+    }
+
+    .main-name {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #102A1E;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .main-name span { color: #1B6A45; }
+
+    .main-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1E7E52;
+      margin-top: 0.35rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .main-summary {
+      font-size: 0.92rem;
+      color: #3B4D44;
+      margin-top: 0.8rem;
+      line-height: 1.65;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #102A1E;
+      border-bottom: 1.5px solid #287A54;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.9rem;
+      font-weight: 800;
+    }
+
+    .project-card {
+      margin-bottom: 1rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #102A1E;
+    }
+
+    .project-tech {
+      font-size: 0.78rem;
+      color: #1E7E52;
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
+      color: #44554C;
+      margin-top: 0.25rem;
+      line-height: 1.55;
+    }
+
+    .job-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #102A1E;
+    }
+
+    .job-meta {
+      font-size: 0.82rem;
+      color: #556B5F;
+      font-style: italic;
+      margin-bottom: 0.4rem;
+    }
+
+    .job-bullets {
+      padding-left: 1.2rem;
+      font-size: 0.85rem;
+      color: #3B4D44;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    /* Print Formatting Rules */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+      }
+
+      .print-bar {
+        display: none !important;
+      }
+
+      .a4-document {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+      }
+
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .a4-document {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toolbar -->
+  <div class="print-bar">
+    <div>
+      <strong>Getaneh Dejenie (Melaku)</strong> &bull;
+      <span style="color: #A3C8B4; font-size: 0.84rem;">Curriculum Vitae</span>
+    </div>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <a href="/" class="back-link">&larr; Back to Portfolio</a>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+          <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+        </svg>
+        Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- A4 CV Document -->
+  <div class="a4-document">
+
+    <!-- LEFT SIDEBAR -->
+    <aside>
+      <div class="avatar-wrapper">
+        <img
+          src="/assets/profile-avatar.jpg"
+          alt="Getaneh Dejenie (Melaku)"
+          onerror="this.src='/assets/profile-placeholder.svg'"
+        />
+      </div>
+      <div class="avatar-tag">&lt;GD: DEV /&gt;</div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4>Contact</h4>
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a class="contact-val" href="mailto:getanehmelaku1221@gmail.com">getanehmelaku1221@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <span class="contact-val">+251 942 782 861</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Location</span>
+          <span class="contact-val">Gondar, Ethiopia</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-val"><a href="https://github.com/gecha12" target="_blank">github.com/gecha12</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-val"><a href="https://linkedin.com/in/getaneh-dejenie" target="_blank">linkedin.com/in/getaneh-dejenie</a></span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <h4>Education</h4>
+        <div style="font-size: 0.84rem;">
+          <strong style="color: #ffffff; display: block; font-size: 0.92rem;">BSc in Computer Science</strong>
+          <span style="color: #55D68A; display: block; margin: 0.2rem 0;">University of Gondar</span>
+          <span style="color: #A3C8B4; font-size: 0.78rem; display: block;">College of Informatics &bull; 4th Year</span>
+          <span style="color: #7AA88E; font-size: 0.76rem; display: block; margin-top: 0.2rem;">ID: UoG-CS-02130/15 &bull; Sec 2</span>
+          <span style="color: #A8FF3E; font-size: 0.76rem; display: block; margin-top: 0.2rem;">Graduation: 2026/2027</span>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div>
+        <h4>Technical Skills</h4>
+        <ul class="sidebar-list">
+          <li>&bull; Python, FastAPI, Django</li>
+          <li>&bull; React.js, TypeScript, Next.js</li>
+          <li>&bull; PostgreSQL, MySQL, SQLite</li>
+          <li>&bull; Java, Spring Boot microservices</li>
+          <li>&bull; Scikit-Learn, Pandas, ML pipelines</li>
+          <li>&bull; Wireshark, Nmap, Burp Suite</li>
+          <li>&bull; Wazuh SIEM, Linux/Bash, Docker</li>
+          <li>&bull; Git, GitHub, RESTful APIs, JWT</li>
+        </ul>
+      </div>
+
+      <!-- Languages -->
+      <div>
+        <h4>Languages</h4>
+        <div style="font-size: 0.8rem; color: #C8E6D5;">
+          <div><strong style="color: #ffffff;">Amharic:</strong> Native</div>
+          <div style="margin-top: 0.2rem;"><strong style="color: #ffffff;">English:</strong> Professional Working</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN RIGHT CONTENT -->
+    <main>
+      <header class="main-header">
+        <h1 class="main-name">GETANEH <span>DEJENIE</span> (MELAKU)</h1>
+        <div class="main-title">Full-Stack Developer | Cybersecurity Engineer | AI &amp; Machine Learning</div>
+        <p class="main-summary">
+          Motivated and detail-oriented Computer Science developer at the University of Gondar with rigorous foundations in full-stack architecture, secure software engineering, and applied machine learning. Passionate about building resilient platforms, conducting vulnerability analysis, and deploying practical intelligent systems for real-world impact.
+        </p>
+      </header>
+
+      <!-- Selected Projects -->
+      <section>
+        <h2 class="section-title">💼 Selected Engineering Projects</h2>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-name">GondarRent AI — Property Valuation &amp; Rental Platform</span>
+            <span class="project-tech">React &bull; TypeScript &bull; FastAPI &bull; PostgreSQL</span>
+          </div>
+          <p class="project-desc">
+            Architected full-stack rental discovery platform with automated price estimation models, secure role-based portals for landlords and tenants, and Dockerized deployment.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-name">MedLens — AI Clinical Record &amp; Emergency Token System</span>
+            <span class="project-tech">React &bull; Python &bull; FastAPI &bull; PostgreSQL &bull; Flutter</span>
+          </div>
+          <p class="project-desc">
+            Final-year capstone project. Designed secure QR-assisted emergency medical lookup token, HIPAA-style access audit logging, and NLP summarization of consultation records during triage.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-name">EduTrack — ML Academic Trajectory Predictor</span>
+            <span class="project-tech">Python &bull; Scikit-Learn &bull; FastAPI &bull; Pandas</span>
+          </div>
+          <p class="project-desc">
+            Trained supervised Random Forest classifiers (&gt;87% test accuracy) predicting student academic intervention indicators with actionable feature importance charts.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-name">InternBridge — Institutional Apprenticeship Platform</span>
+            <span class="project-tech">Spring Boot &bull; PostgreSQL &bull; React &bull; RBAC</span>
+          </div>
+          <p class="project-desc">
+            Built during internship at Atlas Computer Technology PLC. Engineered multi-tier role management connecting university interns, corporate mentors, and departmental supervisors.
+          </p>
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section>
+        <h2 class="section-title">🏢 Professional Experience</h2>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+          <span class="job-title">Atlas Computer Technology PLC — Software Engineering Intern</span>
+          <span style="font-size: 0.8rem; color: #1E7E52; font-weight: 600;">July 2026 — Sept 2026</span>
+        </div>
+        <div class="job-meta">Full-Stack Architecture &amp; Database Engineering &bull; Addis Ababa, Ethiopia</div>
+        <ul class="job-bullets">
+          <li>Developed core persistence services and data schemas using Spring Boot and PostgreSQL.</li>
+          <li>Implemented role-based authorization tokens (RBAC) separating student access from enterprise evaluators.</li>
+          <li>Engaged in Agile sprint standups, feature estimation, and Git version control workflows.</li>
+        </ul>
+      </section>
+
+      <!-- Cybersecurity Practice -->
+      <section>
+        <h2 class="section-title">🛡️ Cybersecurity &amp; Systems Security Practice</h2>
+        <ul class="job-bullets">
+          <li><strong>OWASP Top 10 Auditing:</strong> Hands-on testing of SQL injection, Broken Object Level Authorization (BOLA), and Cross-Site Scripting (XSS) remediation in isolated sandbox environments.</li>
+          <li><strong>Traffic &amp; Protocol Inspection:</strong> Deep packet inspection using Wireshark to trace TLS handshakes, identify plaintext transmission vulnerabilities, and analyze DNS queries.</li>
+          <li><strong>Network Mapping &amp; SIEM:</strong> Service enumeration and port fingerprinting with Nmap scripts; configured Wazuh HIDS agents for host intrusion detection and file integrity alerts.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

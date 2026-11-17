@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const OrbitalAvatar: React.FC = () => {
-  const [imgSrc, setImgSrc] = useState('/assets/profile-placeholder.svg');
+  const [imgSrc, setImgSrc] = useState('/assets/profile-avatar.jpg');
 
   return (
     <div className="orbital-container" aria-label="Profile of Getaneh Dejenie with animated orbital rings">
