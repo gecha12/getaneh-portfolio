@@ -75,6 +75,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
         {/* Action Buttons */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+          <a
+            href="/docs.html"
+            className="btn btn-outline btn-sm"
+            style={{ display: 'none', md: 'inline-flex' } as any}
+          >
+            <span>Docs</span>
+            <ExternalLink size={13} />
+          </a>
+
           <button
             onClick={onOpenResume}
             className="btn btn-secondary btn-sm"
