@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://getaneh-id-02130-15-section-2.netlify.app/sitemap.xml
+
