@@ -7,8 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <!-- Marked.js for fast client-side markdown parsing -->
+  <!-- Marked.js parser with fallback -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Direct Offline Document Data (Solves "Failed to Fetch" when opened directly via file://) -->
+  <script src="docs-data.js"></script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -16,7 +18,6 @@
       padding: 0;
     }
 
-    /* Calibrated Dark Theme: Soft charcoal-forest background to reduce eye strain */
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #111A16;
@@ -78,6 +79,7 @@
       font-weight: 500;
       transition: all 0.2s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .docs-link:hover {
@@ -118,7 +120,7 @@
       max-width: 1000px;
     }
 
-    /* Document Sheet: Calm charcoal surface with soft borders */
+    /* Document Sheet */
     .doc-sheet {
       background: #15221C;
       border: 1px solid rgba(85, 214, 138, 0.15);
@@ -129,7 +131,6 @@
       font-size: 0.98rem;
     }
 
-    /* Professional Muted Headings */
     .doc-sheet h1 {
       font-size: 2rem;
       color: #FFFFFF;
@@ -156,20 +157,16 @@
       font-weight: 600;
     }
 
-    /* PROPER EYE-FRIENDLY COLORS: */
-    /* Notes & body sentences: Soft, balanced, natural sage green (Easy to read, zero glare) */
     .doc-sheet p,
     .doc-sheet li,
     .doc-sheet span {
-      color: #B2CEBD !important; /* Gentle sage green with high clarity and zero harshness */
+      color: #B2CEBD !important;
     }
 
-    /* First keywords: Refined warm coral/brick red (Clear, authoritative, NO neon glare) */
     .doc-sheet strong,
     .doc-sheet b {
-      color: #E26D5C !important; /* Elegant warm terracotta-brick red */
+      color: #E26D5C !important;
       font-weight: 600 !important;
-      text-shadow: none !important; /* Removed harsh neon glow */
     }
 
     .doc-sheet ul, .doc-sheet ol {
@@ -259,62 +256,80 @@
 
   <script>
     const docs = [
-      { id: '01', title: '01. Project Overview', file: '/docs/01-project-overview.md' },
-      { id: '02', title: '02. Technology Stack', file: '/docs/02-technology-stack.md' },
-      { id: '03', title: '03. Frontend Architecture', file: '/docs/03-frontend-architecture.md' },
-      { id: '04', title: '04. Backend Architecture', file: '/docs/04-backend-architecture.md' },
-      { id: '05', title: '05. Database Design', file: '/docs/05-database-design.md' },
-      { id: '06', title: '06. System Architecture', file: '/docs/06-system-architecture.md' },
-      { id: '07', title: '07. API Documentation', file: '/docs/07-api-documentation.md' },
-      { id: '08', title: '08. Security Audit Report', file: '/docs/08-security-audit.md' },
-      { id: '09', title: '09. UI/UX Design System', file: '/docs/09-ui-ux-design.md' },
-      { id: '10', title: '10. Testing Report', file: '/docs/10-testing-report.md' },
-      { id: '11', title: '11. Deployment Guide', file: '/docs/11-deployment-guide.md' },
-      { id: '12', title: '12. Future Improvements', file: '/docs/12-future-improvements.md' },
-      { id: '13', title: '13. Interview Preparation', file: '/docs/13-interview-preparation.md' }
+      { id: '01', title: '01. Project Overview', filename: '01-project-overview.md' },
+      { id: '02', title: '02. Technology Stack', filename: '02-technology-stack.md' },
+      { id: '03', title: '03. Frontend Architecture', filename: '03-frontend-architecture.md' },
+      { id: '04', title: '04. Backend Architecture', filename: '04-backend-architecture.md' },
+      { id: '05', title: '05. Database Design', filename: '05-database-design.md' },
+      { id: '06', title: '06. System Architecture', filename: '06-system-architecture.md' },
+      { id: '07', title: '07. API Documentation', filename: '07-api-documentation.md' },
+      { id: '08', title: '08. Security Audit Report', filename: '08-security-audit.md' },
+      { id: '09', title: '09. UI/UX Design System', filename: '09-ui-ux-design.md' },
+      { id: '10', title: '10. Testing Report', filename: '10-testing-report.md' },
+      { id: '11', title: '11. Deployment Guide', filename: '11-deployment-guide.md' },
+      { id: '12', title: '12. Future Improvements', filename: '12-future-improvements.md' },
+      { id: '13', title: '13. Interview Preparation', filename: '13-interview-preparation.md' }
     ];
 
-    let currentFile = docs[0].file;
+    let currentFilename = docs[0].filename;
 
     function renderNav() {
       const navList = document.getElementById('navList');
       navList.innerHTML = docs.map(doc => `
         <li>
-          <a href="#${doc.id}"
-             class="docs-link ${doc.file === currentFile ? 'active' : ''}"
-             onclick="loadDoc('${doc.file}')">
+          <a class="docs-link ${doc.filename === currentFilename ? 'active' : ''}"
+             onclick="loadDoc('${doc.filename}')">
             ${doc.title}
           </a>
         </li>
       `).join('');
     }
 
-    async function loadDoc(file) {
-      currentFile = file;
+    async function loadDoc(filename) {
+      currentFilename = filename;
       renderNav();
       const contentEl = document.getElementById('docContent');
-      contentEl.innerHTML = '<div style="text-align: center; color: #55D68A; padding: 2rem;">Loading document...</div>';
 
+      // 1. Direct Memory/Bundle Strategy (Guarantees instant load under file://, localhost, or CDN with NO fetch errors)
+      if (window.DOCS_CONTENT && window.DOCS_CONTENT[filename]) {
+        renderMarkdown(window.DOCS_CONTENT[filename]);
+        return;
+      }
+
+      // 2. Fallback Fetch Strategy (if hosted via HTTP server)
       try {
-        const res = await fetch(file);
-        if (!res.ok) throw new Error('File not found: ' + file);
+        const res = await fetch('docs/' + filename);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         const mdText = await res.text();
-        contentEl.innerHTML = marked.parse(mdText);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderMarkdown(mdText);
       } catch (err) {
-        contentEl.innerHTML = `<div style="color: #E26D5C;">Error loading document: ${err.message}</div>`;
+        contentEl.innerHTML = `
+          <div style="color: #E26D5C; padding: 2rem 0;">
+            <h3 style="color: #E26D5C; margin-bottom: 0.8rem;">Document Notice</h3>
+            <p style="color: #B2CEBD;">Could not load via network (${err.message}).</p>
+          </div>
+        `;
       }
     }
 
-    // Hash routing
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.replace('#', '');
-      const matched = docs.find(d => d.id === hash);
-      if (matched) {
-        loadDoc(matched.file);
+    function renderMarkdown(mdText) {
+      const contentEl = document.getElementById('docContent');
+      if (window.marked && typeof window.marked.parse === 'function') {
+        contentEl.innerHTML = window.marked.parse(mdText);
       } else {
-        loadDoc(docs[0].file);
+        // Fallback preformatted text if CDN blocked
+        contentEl.innerHTML = '<pre style="white-space: pre-wrap; font-family: inherit;">' + escapeHtml(mdText) + '</pre>';
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderNav();
+      loadDoc(docs[0].filename);
     });
   </script>
 </body>
