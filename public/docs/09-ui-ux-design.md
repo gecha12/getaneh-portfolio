@@ -1,10 +1,10 @@
 # 09 — UI/UX Design System Specification
 
 ## 1. Design Philosophy: "Emerald Forest + Neon Lime + Charcoal"
-<strong style="color: #D90429; font-weight: 700;">The visual </strong><span style="color: #2D6A4F;">identity moves away from flat near-black into deep layered forest and emerald tones:</span>
-- <strong style="color: #D90429; font-weight: 700;">Atmosphere:</strong> <span style="color: #2D6A4F;">Futuristic, technical, calm, and trustworthy.</span>
-- <strong style="color: #D90429; font-weight: 700;">Lighting:</strong> <span style="color: #2D6A4F;">Subtle radial gradients and ambient glows behind key focal points.</span>
-- <strong style="color: #D90429; font-weight: 700;">Restraint:</strong> <span style="color: #2D6A4F;">Neon lime used strictly for high-priority CTA actions and critical keywords, avoiding loud neon cliches.</span>
+**The visual **identity moves away from flat near-black into deep layered forest and emerald tones:
+- <strong style="color: #E26D5C; font-weight: 600;">Atmosphere:</strong> <span style="color: #B2CEBD;">Futuristic, technical, calm, and trustworthy.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Lighting:</strong> <span style="color: #B2CEBD;">Subtle radial gradients and ambient glows behind key focal points.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Restraint:</strong> <span style="color: #B2CEBD;">Neon lime used strictly for high-priority CTA actions and critical keywords, avoiding loud neon cliches.</span>
 
 ---
 
@@ -26,15 +26,15 @@
 ---
 
 ## 3. Typographic Hierarchy
-- <strong style="color: #D90429; font-weight: 700;">Primary Body Font:</strong> <span style="color: #2D6A4F;">`Inter`, `-apple-system`, `sans-serif` (Optimal readability at all densities).</span>
-- <strong style="color: #D90429; font-weight: 700;">Code & Metadata Font:</strong> <span style="color: #2D6A4F;">`Fira Code`, `JetBrains Mono`, `monospace` (Used for tags, terminal brackets, and data flows).</span>
-- <strong style="color: #D90429; font-weight: 700;">Contrast Compliance:</strong> <span style="color: #2D6A4F;">Contrast ratio between `#F4F8F4` and `#1A3326` is > **9.2:1**, comfortably exceeding WCAG AAA standard (7:1).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Primary Body Font:</strong> <span style="color: #B2CEBD;">`Inter`, `-apple-system`, `sans-serif` (Optimal readability at all densities).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Code & Metadata Font:</strong> <span style="color: #B2CEBD;">`Fira Code`, `JetBrains Mono`, `monospace` (Used for tags, terminal brackets, and data flows).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Contrast Compliance:</strong> <span style="color: #B2CEBD;">Contrast ratio between `#F4F8F4` and `#1A3326` is > **9.2:1**, comfortably exceeding WCAG AAA standard (7:1).</span>
 
 ---
 
 ## 4. Signature Orbital Avatar Specification
-- <strong style="color: #D90429; font-weight: 700;">Centerpiece:</strong> <span style="color: #2D6A4F;">High-resolution cropped portrait headshot in circular frame (`230px`).</span>
-- <strong style="color: #D90429; font-weight: 700;">Inner Ring:</strong> <span style="color: #2D6A4F;">Crimson/Red gradient (`#FF3344` $\rightarrow$ `#FF5252`), radius $r = 128\text{px}$, stroke width `0.85px`, clockwise rotation (`22s`).</span>
-- <strong style="color: #D90429; font-weight: 700;">Outer Ring:</strong> <span style="color: #2D6A4F;">Lime/Emerald gradient (`#A8FF3E` $\rightarrow$ `#55D68A`), radius $r = 136\text{px}$, stroke width `0.85px`, counter-clockwise rotation (`28s`).</span>
-- <strong style="color: #D90429; font-weight: 700;">Glow & Particles:</strong> <span style="color: #2D6A4F;">Ambient radial bloom with subtle glowing orbital nodes traveling along the ring paths.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Centerpiece:</strong> <span style="color: #B2CEBD;">High-resolution cropped portrait headshot in circular frame (`230px`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Inner Ring:</strong> <span style="color: #B2CEBD;">Crimson/Red gradient (`#FF3344` $\rightarrow$ `#FF5252`), radius $r = 128\text{px}$, stroke width `0.85px`, clockwise rotation (`22s`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Outer Ring:</strong> <span style="color: #B2CEBD;">Lime/Emerald gradient (`#A8FF3E` $\rightarrow$ `#55D68A`), radius $r = 136\text{px}$, stroke width `0.85px`, counter-clockwise rotation (`28s`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Glow & Particles:</strong> <span style="color: #B2CEBD;">Ambient radial bloom with subtle glowing orbital nodes traveling along the ring paths.</span>
 

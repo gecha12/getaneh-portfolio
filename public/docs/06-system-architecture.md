@@ -41,7 +41,7 @@ flowchart TD
 ---
 
 ## 2. Component Communication Patterns
-- <strong style="color: #D90429; font-weight: 700;">Unidirectional Data Flow:</strong> <span style="color: #2D6A4F;">Data flows down via props (`ProjectModal`, `OrbitalAvatar`); user interactions bubble up via typed callback functions (`onOpenResume`, `onClose`).</span>
-- <strong style="color: #D90429; font-weight: 700;">Zero Heavy State Overheads:</strong> <span style="color: #2D6A4F;">The portfolio avoids excessive Redux or Context providers, keeping DOM operations predictable and instantaneous.</span>
-- <strong style="color: #D90429; font-weight: 700;">Hardware-Accelerated Compositing:</strong> <span style="color: #2D6A4F;">All animations (`rotateRing`, `scrollRtoL`) animate exclusively on `transform` and `opacity` properties to prevent DOM layout recalculations.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Unidirectional Data Flow:</strong> <span style="color: #B2CEBD;">Data flows down via props (`ProjectModal`, `OrbitalAvatar`); user interactions bubble up via typed callback functions (`onOpenResume`, `onClose`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Zero Heavy State Overheads:</strong> <span style="color: #B2CEBD;">The portfolio avoids excessive Redux or Context providers, keeping DOM operations predictable and instantaneous.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Hardware-Accelerated Compositing:</strong> <span style="color: #B2CEBD;">All animations (`rotateRing`, `scrollRtoL`) animate exclusively on `transform` and `opacity` properties to prevent DOM layout recalculations.</span>
 

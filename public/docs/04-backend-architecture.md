@@ -1,10 +1,10 @@
 # 04 — Backend Architecture
 
 ## 1. Architectural Philosophy
-<strong style="color: #D90429; font-weight: 700;">The backend </strong><span style="color: #2D6A4F;">systems architected in Getaneh's projects (*GondarRent AI*, *MedLens*, *EduTrack*, and *InternBridge*) adhere to modern API standards:</span>
-1. <strong style="color: #D90429; font-weight: 700;">Asynchronous Non-Blocking I/O:</strong> <span style="color: #2D6A4F;">High throughput, low-latency microservices using Python's `asyncio` and FastAPI.</span>
-2. <strong style="color: #D90429; font-weight: 700;">Layered Decoupling:</strong> <span style="color: #2D6A4F;">Separation of Presentation (Routes/Controllers), Business Logic (Services), and Data Access (Repositories / ORM).</span>
-3. <strong style="color: #D90429; font-weight: 700;">Strict Contract Enforcement:</strong> <span style="color: #2D6A4F;">Pydantic schemas validating all incoming request payloads before business execution.</span>
+**The backend **systems architected in Getaneh's projects (*GondarRent AI*, *MedLens*, *EduTrack*, and *InternBridge*) adhere to modern API standards:
+1. **Asynchronous Non-Blocking I/O:** High throughput, low-latency microservices using Python's `asyncio` and FastAPI.
+2. **Layered Decoupling:** Separation of Presentation (Routes/Controllers), Business Logic (Services), and Data Access (Repositories / ORM).
+3. **Strict Contract Enforcement:** Pydantic schemas validating all incoming request payloads before business execution.
 
 ---
 
@@ -32,9 +32,9 @@ Client (Web / Mobile)
 ---
 
 ## 3. Asynchronous Model Inference Pattern
-<strong style="color: #D90429; font-weight: 700;">For ML </strong><span style="color: #2D6A4F;">integration (as in *EduTrack* and *GondarRent AI*):</span>
-- <strong style="color: #D90429; font-weight: 700;">Models </strong><span style="color: #2D6A4F;">are pre-trained and serialized via `joblib` into binary model artifacts.</span>
-- <strong style="color: #D90429; font-weight: 700;">During </strong><span style="color: #2D6A4F;">application startup (`@app.on_event("startup")`), the model artifact is loaded into shared memory once.</span>
-- <strong style="color: #D90429; font-weight: 700;">Incoming </strong><span style="color: #2D6A4F;">inference requests pass validated feature arrays directly into `model.predict_proba()` without incurring cold-start model load latency.</span>
-- <strong style="color: #D90429; font-weight: 700;">Output </strong><span style="color: #2D6A4F;">features include both the final prediction class and feature importance attributions for explainability.</span>
+**For ML **integration (as in *EduTrack* and *GondarRent AI*):
+- <strong style="color: #E26D5C; font-weight: 600;">Models </strong> <span style="color: #B2CEBD;">are pre-trained and serialized via `joblib` into binary model artifacts.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">During </strong> <span style="color: #B2CEBD;">application startup (`@app.on_event("startup")`), the model artifact is loaded into shared memory once.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Incoming </strong> <span style="color: #B2CEBD;">inference requests pass validated feature arrays directly into `model.predict_proba()` without incurring cold-start model load latency.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Output </strong> <span style="color: #B2CEBD;">features include both the final prediction class and feature importance attributions for explainability.</span>
 

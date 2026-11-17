@@ -1,7 +1,7 @@
 # 03 — Frontend Architecture
 
 ## 1. Directory & Component Structure
-<strong style="color: #D90429; font-weight: 700;">The frontend </strong><span style="color: #2D6A4F;">application is structured logically to maintain a clean separation of concerns:</span>
+**The frontend **application is structured logically to maintain a clean separation of concerns:
 
 ```
 src/
@@ -34,15 +34,15 @@ src/
 ---
 
 ## 2. State Management & Lifecycle
-- <strong style="color: #D90429; font-weight: 700;">Local Reactive State:</strong> <span style="color: #2D6A4F;">Minimal, targeted `useState` hooks for UI states (modal open/close, category filter selection, mobile drawer toggling).</span>
-- <strong style="color: #D90429; font-weight: 700;">Active Scroll Spy:</strong> <span style="color: #2D6A4F;">Efficient scroll listener in `Navbar.tsx` that determines active sections based on vertical viewport offsets (`window.scrollY + 200`).</span>
-- <strong style="color: #D90429; font-weight: 700;">Keyboard & Modal Traps:</strong> <span style="color: #2D6A4F;">`ProjectModal.tsx` and `ResumeSection.tsx` implement `Escape` key listeners and lock background scroll (`document.body.style.overflow = 'hidden'`) during active dialog states.</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Local Reactive State:</strong> <span style="color: #B2CEBD;">Minimal, targeted `useState` hooks for UI states (modal open/close, category filter selection, mobile drawer toggling).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Active Scroll Spy:</strong> <span style="color: #B2CEBD;">Efficient scroll listener in `Navbar.tsx` that determines active sections based on vertical viewport offsets (`window.scrollY + 200`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Keyboard & Modal Traps:</strong> <span style="color: #B2CEBD;">`ProjectModal.tsx` and `ResumeSection.tsx` implement `Escape` key listeners and lock background scroll (`document.body.style.overflow = 'hidden'`) during active dialog states.</span>
 
 ---
 
 ## 3. CSS Architecture & System Tokens
 Colors, fonts, border radii, and transitions are defined globally in `:root`:
-- <strong style="color: #D90429; font-weight: 700;">`--bg-primary` </strong><span style="color: #2D6A4F;">(`#0D1A12`), `--bg-secondary` (`#152B1E`), `--bg-card` (`#1A3326`).</span>
-- <strong style="color: #D90429; font-weight: 700;">`--accent-lime` </strong><span style="color: #2D6A4F;">(`#A8FF3E`), `--accent-emerald` (`#55D68A`), `--accent-mint` (`#C9F7D5`).</span>
-- <strong style="color: #D90429; font-weight: 700;">Pure </strong><span style="color: #2D6A4F;">hardware-accelerated CSS keyframe animations for orbital rings and marquee banners (`transform: translateX()`, `transform: rotate()`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">`--bg-primary` </strong> <span style="color: #B2CEBD;">(`#0D1A12`), `--bg-secondary` (`#152B1E`), `--bg-card` (`#1A3326`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">`--accent-lime` </strong> <span style="color: #B2CEBD;">(`#A8FF3E`), `--accent-emerald` (`#55D68A`), `--accent-mint` (`#C9F7D5`).</span>
+- <strong style="color: #E26D5C; font-weight: 600;">Pure </strong> <span style="color: #B2CEBD;">hardware-accelerated CSS keyframe animations for orbital rings and marquee banners (`transform: translateX()`, `transform: rotate()`).</span>
 

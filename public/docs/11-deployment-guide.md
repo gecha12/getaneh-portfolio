@@ -1,12 +1,12 @@
 # 11 — Deployment Guide
 
 ## 1. Overview
-<strong style="color: #D90429; font-weight: 700;">The portfolio </strong><span style="color: #2D6A4F;">is designed as a high-performance static Single Page Application (SPA). It can be deployed to any modern edge hosting service (Vercel, Netlify, GitHub Pages, Cloudflare Pages).</span>
+**The portfolio **is designed as a high-performance static Single Page Application (SPA). It can be deployed to any modern edge hosting service (Vercel, Netlify, GitHub Pages, Cloudflare Pages).
 
 ---
 
 ## 2. GitHub Preparation & Push
-<strong style="color: #D90429; font-weight: 700;">Ensure your </strong><span style="color: #2D6A4F;">local branch is committed on `main`:</span>
+**Ensure your **local branch is committed on `main`:
 
 ```powershell
 cd "c:\Users\hp\Desktop\portifolio project"
@@ -19,29 +19,29 @@ git push -u origin main
 ---
 
 ## 3. Deploying to Netlify (Recommended)
-1. <strong style="color: #D90429; font-weight: 700;">Log </strong><span style="color: #2D6A4F;">in to [Netlify](https://app.netlify.com).</span>
-2. <strong style="color: #D90429; font-weight: 700;">Click </strong><span style="color: #2D6A4F;">**"Add new site"** $\rightarrow$ **"Import an existing project"**.</span>
-3. <strong style="color: #D90429; font-weight: 700;">Select </strong><span style="color: #2D6A4F;">**GitHub** and authorize access to your `portfolio` repository.</span>
-4. <strong style="color: #D90429; font-weight: 700;">Configure </strong><span style="color: #2D6A4F;">Build Settings:</span>
-   - <strong style="color: #D90429; font-weight: 700;">Build command:</strong> <span style="color: #2D6A4F;">`npm run build`</span>
-   - <strong style="color: #D90429; font-weight: 700;">Publish directory:</strong> <span style="color: #2D6A4F;">`dist`</span>
-5. <strong style="color: #D90429; font-weight: 700;">Click </strong><span style="color: #2D6A4F;">**"Deploy site"**. Deployment completes in ~30 seconds.</span>
+1. **Log **in to [Netlify](https://app.netlify.com).
+2. **Click ****"Add new site"** $\rightarrow$ **"Import an existing project"**.
+3. **Select ****GitHub** and authorize access to your `portfolio` repository.
+4. **Configure **Build Settings:
+   - <strong style="color: #E26D5C; font-weight: 600;">Build command:</strong> <span style="color: #B2CEBD;">`npm run build`</span>
+   - <strong style="color: #E26D5C; font-weight: 600;">Publish directory:</strong> <span style="color: #B2CEBD;">`dist`</span>
+5. **Click ****"Deploy site"**. Deployment completes in ~30 seconds.
 
 ---
 
 ## 4. Deploying to Vercel
-1. <strong style="color: #D90429; font-weight: 700;">Log </strong><span style="color: #2D6A4F;">in to [Vercel](https://vercel.com).</span>
-2. <strong style="color: #D90429; font-weight: 700;">Click </strong><span style="color: #2D6A4F;">**"Add New..."** $\rightarrow$ **"Project"**.</span>
-3. <strong style="color: #D90429; font-weight: 700;">Import </strong><span style="color: #2D6A4F;">your GitHub repository.</span>
-4. <strong style="color: #D90429; font-weight: 700;">Framework </strong><span style="color: #2D6A4F;">Preset will auto-detect **Vite**:</span>
-   - <strong style="color: #D90429; font-weight: 700;">Build Command:</strong> <span style="color: #2D6A4F;">`npm run build`</span>
-   - <strong style="color: #D90429; font-weight: 700;">Output Directory:</strong> <span style="color: #2D6A4F;">`dist`</span>
-5. <strong style="color: #D90429; font-weight: 700;">Click </strong><span style="color: #2D6A4F;">**"Deploy"**.</span>
+1. **Log **in to [Vercel](https://vercel.com).
+2. **Click ****"Add New..."** $\rightarrow$ **"Project"**.
+3. **Import **your GitHub repository.
+4. **Framework **Preset will auto-detect **Vite**:
+   - <strong style="color: #E26D5C; font-weight: 600;">Build Command:</strong> <span style="color: #B2CEBD;">`npm run build`</span>
+   - <strong style="color: #E26D5C; font-weight: 600;">Output Directory:</strong> <span style="color: #B2CEBD;">`dist`</span>
+5. **Click ****"Deploy"**.
 
 ---
 
 ## 5. Domain & HTTPS Configuration
-1. <strong style="color: #D90429; font-weight: 700;">Once </strong><span style="color: #2D6A4F;">deployed, link your custom domain (e.g., `getaneh.dev` or `getanehdejenie.com`).</span>
-2. <strong style="color: #D90429; font-weight: 700;">Both </strong><span style="color: #2D6A4F;">Netlify and Vercel automatically provision and renew Let's Encrypt SSL/TLS certificates.</span>
-3. <strong style="color: #D90429; font-weight: 700;">Configure </strong><span style="color: #2D6A4F;">HTTP to HTTPS redirect enforcement.</span>
+1. **Once **deployed, link your custom domain (e.g., `getaneh.dev` or `getanehdejenie.com`).
+2. **Both **Netlify and Vercel automatically provision and renew Let's Encrypt SSL/TLS certificates.
+3. **Configure **HTTP to HTTPS redirect enforcement.
 
