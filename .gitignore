@@ -43,4 +43,7 @@ desktop.ini
 .eslintcache
 .stylelintcache
 *.tsbuildinfo
+~$*
+*.tmp
+
 
