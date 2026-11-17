@@ -41,6 +41,7 @@ flowchart TD
 ---
 
 ## 2. Component Communication Patterns
-- **Unidirectional Data Flow**: Data flows down via props (`ProjectModal`, `OrbitalAvatar`); user interactions bubble up via typed callback functions (`onOpenResume`, `onClose`).
-- **Zero Heavy State Overheads**: The portfolio avoids excessive Redux or Context providers, keeping DOM operations predictable and instantaneous.
-- **Hardware-Accelerated Compositing**: All animations (`rotateRing`, `scrollRtoL`) animate exclusively on `transform` and `opacity` properties to prevent DOM layout recalculations.
+- <strong style="color: #D90429; font-weight: 700;">Unidirectional Data Flow:</strong> <span style="color: #2D6A4F;">Data flows down via props (`ProjectModal`, `OrbitalAvatar`); user interactions bubble up via typed callback functions (`onOpenResume`, `onClose`).</span>
+- <strong style="color: #D90429; font-weight: 700;">Zero Heavy State Overheads:</strong> <span style="color: #2D6A4F;">The portfolio avoids excessive Redux or Context providers, keeping DOM operations predictable and instantaneous.</span>
+- <strong style="color: #D90429; font-weight: 700;">Hardware-Accelerated Compositing:</strong> <span style="color: #2D6A4F;">All animations (`rotateRing`, `scrollRtoL`) animate exclusively on `transform` and `opacity` properties to prevent DOM layout recalculations.</span>
+
