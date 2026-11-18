@@ -1193,3 +1193,72 @@ footer,
   .photo-frame        { width: 155px; height: 155px; }
   .hero-actions  { flex-direction: column; }
 }
+
+
+/* ==========================================================================
+   PRINT RULES: STRICT EXACT 1-PAGE A4 PREVIEW
+   ========================================================================== */
+@media print {
+  /* Hide the rest of the web app */
+  header, nav, #home, #about, #skills, #projects, #cybersecurity, #ai-ml, #experience, #contact, footer, .skills-marquee-section, .modal-close-btn, .cv-modal-header {
+    display: none !important;
+  }
+
+  html, body {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  .modal-overlay {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+  }
+
+  .modal-content {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    padding: 0 !important;
+    max-width: 210mm !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .cv-a4-document {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-width: 210mm !important;
+    min-height: 297mm !important;
+    display: grid !important;
+    grid-template-columns: 66mm 144mm !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  .cv-a4-document aside {
+    padding: 12mm 5mm !important;
+    gap: 6mm !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cv-a4-document main {
+    padding: 12mm 7mm !important;
+    gap: 5mm !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+}
